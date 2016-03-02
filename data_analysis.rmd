@@ -1,0 +1,41 @@
+---
+title: "My analysis"
+author: "Sarah S. Bassiouni"
+date: "March 2, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+```{r, echo=FALSE}
+heights <- c(72, 83, 49, 92, 100)
+ave_height <- mean(heights)
+sd_height <-sd(heights)
+```
+In our study, we measured the heights of `r length(heights)` individuals. Their average height was `r ave_height` (sd= `r sd_height`). These remarkable findings show potential for further study.
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+Did you know that the capybara is the largest rodent? 
+P.S. rsqrt(3) =`r sqrt(3)`
