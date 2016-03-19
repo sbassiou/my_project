@@ -15,9 +15,25 @@ Your assignment is to create an html document where you analyze the gap minder d
 
 For this assignment, I wanted to answer the specific question, "using the gapminder dataset, how has life expectancy changed over time, from 1952 to 2007, in each of the continents?"
 
-To do so, I plotted life expectancy over time for each continent on the same graph.  Continents were uniquely colored to visually distinguish. Using geom_smooth, I plotted a regression line for each continent; this essentially resulted in a summary of the life expectancy for that continent.
+To do so, I plotted life expectancy over time for each continent on the same graph (Figure 1).  Continents were uniquely colored to visually distinguish. Using geom_smooth, I plotted a regression line for each continent; this essentially resulted in a summary of the life expectancy for that continent.
+
+The output is below.
 
 ```{r, echo=FALSE}
+gapminder <- read.csv("data/gapminder-FiveYearData.csv")
+typeof(gapminder$country)
+colnames(gapminder)
+str(gapminder)
+library("ggplot2")
+ggplot(data = gapminder, aes(x =year, y =lifeExp, color=continent)) +
+  geom_point() + geom_smooth(method="lm") +
+  xlab("Year") + ylab("Life expectancy") + ggtitle("Figure 1. Life expectancy from 1952 to 2007") +
+  scale_colour_discrete(name="Continent") +
+  theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
 
+
+```
+
+```{r, echo=FALSE}
 ```
 
