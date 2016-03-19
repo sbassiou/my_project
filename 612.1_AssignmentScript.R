@@ -1,14 +1,22 @@
+
+#Inputting gapminder dataset
 gapminder <- read.csv("data/gapminder-FiveYearData.csv")
+
+#Determining variable type for 'country'
+typeof(gapminder$country)
+
+#Determining names of columns in gapminder
+colnames(gapminder)
+
+#Familiarizing self with gapminder
 str(gapminder)
-typeof(gapminder$year)
-head(gapminder)
 
-#Question to ask: 
-#How does th the U.S. population change 
-#over the past 50 years as compared with 
-#China's population and Brazil's population?
+calcGDP <- function(dat) {
+  gdp <- dat$pop * dat$gdpPercap
+  return(gdp)
+}
 
-pop <- function(dat, year=NULL, country=NULL) {
+calcGDP <- function(dat, year=NULL, country=NULL) {
   if(!is.null(year)) {
     dat <- dat[dat$year %in% year, ]
   }
@@ -21,45 +29,11 @@ pop <- function(dat, year=NULL, country=NULL) {
   return(new)
 }
 
-#Creating variable popUS only containing US population
-popUS <- pop(gapminder, country="United States")
+library("ggplot2")
 
-#Verifiying variable creation
-popUS
-
-#Creating variable popBR containing Brazil population
-popBR <- pop(gapminder, country="Brazil")
-
-#Verifiying variable creation
-popBR
-
-#Creating plot
-ggplot(data = gapminder, 
-       aes(x = year, y = country, color=continent)) + geom_point()
-
-
-ggplot(data = gapminder, aes(x = year, y = country, color=continent)) +
-  geom_line() + facet_wrap( ~ country) +
-  xlab("Year") + ylab("Country") + ggtitle("Figure 1") +
-  scale_fill_discrete(name="Continent") +
+ggplot(data = gapminder, aes(x =year, y =lifeExp, color=continent)) +
+  geom_point() + geom_smooth(method="lm") +
+  xlab("Year") + ylab("Life expectancy") + ggtitle("Figure 1. Life expectancy from 1952 to 2007") +
+  scale_colour_discrete(name="Continent") +
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
 
-
-#test
-library("ggplot2")
-ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap)) +
-  geom_point(
-    
-#To output vector:
-daply(
-  .data = calclifeExp(gapminder),
-  .variables = "continent",
-  .fun = function(x) mean(x$lifeExp)
-)
-
-#U.S. population 1952-2007 
-country <- daply(
-  .data = gapminder[gapminder$country=="United States"], 
-  .variables ="country",
-  .fun = function(x) mean(x$lifeExp)
-)
