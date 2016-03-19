@@ -18,8 +18,6 @@ For this assignment, I wanted to answer the specific question, "using the gapmin
 To do so, I plotted life expectancy over time for each continent on the same graph.  Continents were uniquely colored to visually distinguish. Using geom_smooth, I plotted a regression line for each continent; this essentially resulted in a summary of the life expectancy for that continent.
 
 ```{r, echo=FALSE}
-plot(pressure)
+
 ```
 
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

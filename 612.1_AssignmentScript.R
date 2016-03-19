@@ -22,22 +22,3 @@ ggplot(data = gapminder, aes(x =year, y =lifeExp, color=continent)) +
   scale_colour_discrete(name="Continent") +
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
 
-#Code not needed; for practice
-calcGDP <- function(dat) {
-  gdp <- dat$pop * dat$gdpPercap
-  return(gdp)
-}
-
-#Code not needed; for practice
-calcGDP <- function(dat, year=NULL, country=NULL) {
-  if(!is.null(year)) {
-    dat <- dat[dat$year %in% year, ]
-  }
-  if (!is.null(country)) {
-    dat <- dat[dat$country %in% country,]
-  }
-  gdp <- dat$pop * dat$gdpPercap
-  
-  new <- cbind(dat, gdp=gdp)
-  return(new)
-}
