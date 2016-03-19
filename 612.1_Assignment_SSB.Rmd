@@ -1,5 +1,5 @@
 ---
-title: "612.1 Assignment"
+title: "micro612.1_assignment"
 author: "Sarah S. Bassiouni"
 date: "March 18, 2016"
 output: html_document
@@ -8,23 +8,18 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+><i>Directions:
+Your assignment is to create an html document where you analyze the gap minder data to answer a specific question you had about the data. The document should include a paragraph with R code embedded in the paragraph and the document should also include a figure that fits with the question you were interested in. You should upload the Rmd, html, and any other files to your github account. When it is complete, please send me an email with a link to your repository. This will be due March 18th.</i>
 
-## R Markdown
+## Assignment for Micrbiol 612.1, Winter 2016
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+For this assignment, I wanted to answer the specific question, "using the gapminder dataset, how has life expectancy changed over time, from 1952 to 2007, in each of the continents?"
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+To do so, I plotted life expectancy over time for each continent on the same graph.  Continents were uniquely colored to visually distinguish. Using geom_smooth, I plotted a regression line for each continent; this essentially resulted in a summary of the life expectancy for that continent.
 
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
+```{r, echo=FALSE}
 plot(pressure)
 ```
+
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
